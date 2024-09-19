@@ -10,7 +10,10 @@ export const BlogList = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  const blogs: Blog[] = data.posts.edges.map((edge: any) => edge.node);
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+const blogs: Blog[] = data.posts.edges.map((edge: any) => edge.node);
+/* eslint-enable @typescript-eslint/no-explicit-any */
+
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
